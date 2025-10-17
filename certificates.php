@@ -1,44 +1,40 @@
 <?php
 // Include file konfigurasi dan model
 include_once 'config/Database.php';
-include_once 'core/Project.php';
+include_once 'core/Certificate.php'; // Ganti model
 
 // Inisialisasi koneksi database
 $database = new Database();
 $db = $database->connect();
 
-// Inisialisasi object project
-$project = new Project($db);
+// Inisialisasi object certificate
+$certificate = new Certificate($db); // Ganti object
 
-// Query projects
-$result = $project->read();
+// Query certificates
+$result = $certificate->read(); // Ganti method
 $num = $result->rowCount();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Manajemen Sertifikat</title>
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
     <header>
-        <h1>My Awesome Portfolio</h1>
-        <p>Seorang Mahasiswa Magang di Perusahaan IT</p>
+        <h1>Manajemen Sertifikat</h1>
+        <a href="index.php">Kembali ke Portfolio</a>
     </header>
 
     <main>
-        <h2>My Projects</h2>
-        <a href="create_form.php" class="btn-add">Tambah Proyek Baru</a>
-        <a href="certificates.php" class="btn-manage-cert">Kelola Sertifikat</a>
+        <a href="cert_create_form.php" class="btn-add">Tambah Sertifikat Baru</a>
         <table>
             <thead>
                 <tr>
                     <th>Gambar</th>
-                    <th>Judul Proyek</th>
-                    <th>Deskripsi</th>
+                    <th>Judul Sertifikat</th>
+                    <th>Tanggal Terbit</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -51,16 +47,15 @@ $num = $result->rowCount();
                             <img src="public/images/<?php echo $image; ?>" alt="<?php echo $title; ?>" width="100">
                         </td>
                         <td><?php echo $title; ?></td>
-                        <td><?php echo $description; ?></td>
+                        <td><?php echo $issued_date; ?></td>
                         <td>
-                            <a href="edit_form.php?id=<?php echo $id; ?>">Edit</a>
-                            <a href="delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                            <a href="cert_delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
                         </td>
                     </tr>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="4">Belum ada proyek.</td>
+                        <td colspan="4">Belum ada sertifikat.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
