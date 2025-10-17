@@ -22,5 +22,28 @@ class Project {
         $stmt->execute();
         return $stmt;
     }
+    public function create() {
+    $query = 'INSERT INTO ' . $this->table . ' SET title = :title, description = :description, project_url = :project_url, image = :image';
+
+    $stmt = $this->conn->prepare($query);
+
+    // Bersihkan data
+    $this->title = htmlspecialchars(strip_tags($this->title));
+    $this->description = htmlspecialchars(strip_tags($this->description));
+    $this->project_url = htmlspecialchars(strip_tags($this->project_url));
+    $this->image = htmlspecialchars(strip_tags($this->image));
+
+    // Binding data
+    $stmt->bindParam(':title', $this->title);
+    $stmt->bindParam(':description', $this->description);
+    $stmt->bindParam(':project_url', $this->project_url);
+    $stmt->bindParam(':image', $this->image);
+
+    if($stmt->execute()) {
+        return true;
+    }
+    printf("Error: %s.\n", $stmt->error);
+    return false;
+}
 }
 ?>
