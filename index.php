@@ -2,6 +2,7 @@
 // Include file konfigurasi dan model
 include_once 'config/Database.php';
 include_once 'core/Project.php';
+include_once 'core/Certificate.php'; // TAMBAHKAN INI
 
 // Inisialisasi koneksi database
 $database = new Database();
@@ -9,10 +10,13 @@ $db = $database->connect();
 
 // Inisialisasi object project
 $project = new Project($db);
+$result_projects = $project->read();
+$num_projects = $result_projects->rowCount();
 
-// Query projects
-$result = $project->read();
-$num = $result->rowCount();
+// Inisialisasi object certificate
+$certificate = new Certificate($db); // TAMBAHKAN INI
+$result_certificates = $certificate->read(); // TAMBAHKAN INI
+$num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
 ?>
 
 <!DOCTYPE html>
@@ -20,19 +24,54 @@ $num = $result->rowCount();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <title>Nathan Sterling - Web Developer</title>
+    <link rel="stylesheet" href="public/css/main.css"> 
 </head>
 <body>
-    <header>
-        <h1>My Awesome Portfolio</h1>
-        <p>Seorang Mahasiswa Magang di Perusahaan IT</p>
+    
+    <header class="navbar">
+        <nav class="nav-container">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#admin" class="nav-link">Admin Panel</a>
+        </nav>
     </header>
 
-    <main>
+    <section id="home" class="section-container hero-section">
+        <div class="hero-text">
+            <h1>Nathan Sterling</h1>
+            <h2>Web Developer & Designer</h2>
+            <p>Crafting modern, responsive, and user-friendly web experiences.</p>
+            <a href="#projects" class="btn-primary">View My Work</a>
+        </div>
+        <div class="hero-image">
+            <img src="public/images/nama-gambar-kamu.jpg" alt="Nathan Sterling">
+        </div>
+    </section>
+
+    <section id="projects" class="section-container">
         <h2>My Projects</h2>
+        <p>Di sini kamu bisa menampilkan proyek-proyekmu dalam bentuk card yang lebih bagus.</p>
+        </section>
+
+    <section id="skills" class="section-container">
+        <h2>Skills</h2>
+        <p>Tampilkan logo-logo teknologi yang kamu kuasai (PHP, MySQL, JS, CSS, dll.)</p>
+    </section>
+
+    <section id="about" class="section-container">
+        <h2>About Me</h2>
+        <p>Paragraf singkat tentang dirimu, latar belakang pendidikan, dan minatmu di bidang IT.</p>
+    </section>
+
+    <section id="admin" class="section-container admin-section">
+        <h2>Admin Panel</h2>
+        <p>Area ini hanya untuk kamu mengelola konten website.</p>
+
+        <h3>Kelola Proyek</h3>
         <a href="create_form.php" class="btn-add">Tambah Proyek Baru</a>
-        <a href="certificates.php" class="btn-manage-cert">Kelola Sertifikat</a>
         <table>
             <thead>
                 <tr>
@@ -43,8 +82,8 @@ $num = $result->rowCount();
                 </tr>
             </thead>
             <tbody>
-                <?php if($num > 0): ?>
-                    <?php while($row = $result->fetch(PDO::FETCH_ASSOC)): ?>
+                <?php if($num_projects > 0): ?>
+                    <?php while($row = $result_projects->fetch(PDO::FETCH_ASSOC)): ?>
                     <?php extract($row); ?>
                     <tr>
                         <td>
@@ -59,12 +98,45 @@ $num = $result->rowCount();
                     </tr>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <tr>
-                        <td colspan="4">Belum ada proyek.</td>
-                    </tr>
+                    <tr><td colspan="4">Belum ada proyek.</td></tr>
                 <?php endif; ?>
             </tbody>
         </table>
-    </main>
+
+        <h3 style="margin-top: 40px;">Kelola Sertifikat</h3>
+        <a href="cert_create_form.php" class="btn-add">Tambah Sertifikat Baru</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Gambar</th>
+                    <th>Judul Sertifikat</th>
+                    <th>Tanggal Terbit</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if($num_certificates > 0): ?>
+                    <?php while($row = $result_certificates->fetch(PDO::FETCH_ASSOC)): ?>
+                    <?php extract($row); ?>
+                    <tr>
+                        <td>
+                            <img src="public/images/<?php echo $image; ?>" alt="<?php echo $title; ?>" width="100">
+                        </td>
+                        <td><?php echo $title; ?></td>
+                        <td><?php echo $issued_date; ?></td>
+                        <td>
+                            <a href="cert_delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr><td colspan="4">Belum ada sertifikat.</td></tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+
+    </section>
+    
+    <script src="public/js/main.js"></script>
 </body>
 </html>
