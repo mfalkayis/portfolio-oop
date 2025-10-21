@@ -32,7 +32,7 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
     <header class="navbar">
         <nav class="nav-container">
             <a href="#home" class="nav-link">Home</a>
-            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#certificates" class="nav-link">Certificates</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#admin" class="nav-link">Admin Panel</a>
@@ -51,10 +51,25 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
         </div>
     </section>
 
-    <section id="projects" class="section-container">
-        <h2>My Projects</h2>
-        <p>Di sini kamu bisa menampilkan proyek-proyekmu dalam bentuk card yang lebih bagus.</p>
-        </section>
+    <section id="certificates" class="section-container">
+        <h2>My Certificates</h2>
+        <div class="certificates-grid">
+            <?php if($num_certificates > 0): ?>
+                <?php while($row = $result_certificates->fetch(PDO::FETCH_ASSOC)): ?>
+                <?php extract($row); ?>
+                <div class="cert-card">
+                    <img src="public/images/<?php echo $image; ?>" 
+                        alt="<?php echo $title; ?>" 
+                        class="cert-thumbnail"
+                        onclick="openModal(this)">
+                    <p class="cert-title"><?php echo $title; ?></p>
+                </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>Belum ada sertifikat untuk ditampilkan.</p>
+            <?php endif; ?>
+        </div>
+    </section>
 
     <section id="skills" class="section-container">
         <h2>Skills</h2>
@@ -136,7 +151,13 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
         </table>
 
     </section>
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
     
     <script src="public/js/main.js"></script>
+    
 </body>
 </html>
