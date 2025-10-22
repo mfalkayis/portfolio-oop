@@ -2,15 +2,21 @@
 // Include file konfigurasi dan model
 include_once 'config/Database.php';
 include_once 'core/Achievement.php'; 
+include_once 'core/Skill.php';
 
 // Inisialisasi koneksi database
 $database = new Database();
 $db = $database->connect();
 
 // Inisialisasi object achievement
-$achievement = new Achievement($db); // TAMBAHKAN INI
-$result_achievements = $achievement->read(); // TAMBAHKAN INI
-$num_achievements = $result_achievements->rowCount(); // TAMBAHKAN INI
+$achievement = new Achievement($db); 
+$result_achievements = $achievement->read(); 
+$num_achievements = $result_achievements->rowCount(); 
+
+// Inisialisasi object skill
+$skill = new Skill($db);
+$result_skills = $skill->read();
+$num_skills = $result_skills->rowCount();
 ?>
 
 <!DOCTYPE html>
@@ -78,70 +84,28 @@ $num_achievements = $result_achievements->rowCount(); // TAMBAHKAN INI
     </section>
 
     <section id="skills" class="section-container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
+        <h2>My Skills</h2>
 
-            <div class="skill-item">
-                <div class="skill-header">
-                    <span class="skill-name">HTML5</span>
-                    <span class="skill-percent">90%</span>
+        <?php if($num_skills > 0): ?>
+            <div class="skills-grid">
+                <?php while($row = $result_skills->fetch(PDO::FETCH_ASSOC)): ?>
+                <?php extract($row); // Ini akan memberi kita variabel $name dan $percentage ?>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name"><?php echo $name; ?></span>
+                        <span class="skill-percent"><?php echo $percentage; ?>%</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-fill" style="width: <?php echo $percentage; ?>%;"></div>
+                    </div>
                 </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
+
+                <?php endwhile; ?>
             </div>
-
-            <div class="skill-item">
-                <div class="skill-header">
-                    <span class="skill-name">CSS3</span>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar-fill" style="width: 85%;"></div>
-                </div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-header">
-                    <span class="skill-name">JavaScript</span>
-                    <span class="skill-percent">80%</span>
-                </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar-fill" style="width: 80%;"></div>
-                </div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-header">
-                    <span class="skill-name">PHP</span>
-                    <span class="skill-percent">75%</span>
-                </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar-fill" style="width: 75%;"></div>
-                </div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-header">
-                    <span class="skill-name">MySQL</span>
-                    <span class="skill-percent">70%</span>
-                </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar-fill" style="width: 70%;"></div>
-                </div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-header">
-                    <span class="skill-name">Python</span>
-                    <span class="skill-percent">65%</span>
-                </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar-fill" style="width: 65%;"></div>
-                </div>
-            </div>
-
-        </div>
+        <?php else: ?>
+            <p style="text-align: center;">Belum ada data skill. Silakan tambahkan melalui Admin Panel.</p>
+        <?php endif; ?>
     </section>
 
     <section id="about" class="section-container">
@@ -172,6 +136,8 @@ $num_achievements = $result_achievements->rowCount(); // TAMBAHKAN INI
             <a href="ach_create_form.php" class="btn-plus" title="Tambah Pencapaian Baru">+</a>
 
             <a href="manage_achievements.php" class="btn-manage" title="Kelola Pencapaian">Kelola Pencapaian</a>
+        
+            <a href="manage_skills.php" class="btn-manage" title="Kelola Skills">Kelola Skills</a>
         </div>
     </section>
 

@@ -329,16 +329,13 @@ h2 { font-size: 2.5rem; }
 
 .skills-grid {
     display: grid;
-    /* Buat 2 kolom */
     grid-template-columns: 1fr 1fr; 
-    gap: 2.5rem; /* Jarak antar skill item */
-    /*max-width: 900px; /* Batasi lebar maksimum */
-    /*margin: 0 auto; /* Posisikan di tengah */
+    gap: 2.5rem; 
 }
 
 .skill-header {
     display: flex;
-    justify-content: space-between; /* Nama kiri, persen kanan */
+    justify-content: space-between; 
     margin-bottom: 0.5rem;
 }
 
