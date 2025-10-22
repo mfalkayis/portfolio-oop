@@ -166,40 +166,12 @@ $num_achievements = $result_achievements->rowCount(); // TAMBAHKAN INI
 
     <section id="admin" class="section-container admin-section">
         <h2>Admin Panel</h2>
-        
-        <h3 style="margin-top: 40px;">Kelola Pengalaman</h3>
-        <a href="ach_create_form.php" class="btn-add">Tambah Pengalaman Baru</a>
-        <table>
-            <thead>
-                <tr>
-                    <th>Gambar</th>
-                    <th>Nama Kegiatan</th>
-                    <th>Deskripsi</th>
-                    <th>Tanggal Terbit</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if($num_achievements > 0): ?>
-                    <?php while($row = $result_achievements->fetch(PDO::FETCH_ASSOC)): ?>
-                    <?php extract($row); ?>
-                    <tr>
-                        <td>
-                            <img src="public/images/<?php echo $image; ?>" alt="<?php echo $title; ?>" width="100">
-                        </td>
-                        <td><?php echo $title; ?></td>
-                        <td><?php echo $description; ?></td>
-                        <td><?php echo $issued_date; ?></td>
-                        <td>
-                            <a href="ach_delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <tr><td colspan="4">Belum ada pengalaman.</td></tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
+        <p>Gunakan tombol di bawah untuk menambahkan pencapaian baru ke portofolio.</p>
+
+        <div class="admin-actions">
+            <a href="ach_create_form.php" class="btn-plus" title="Tambah Pencapaian Baru">+</a>
+        </div>
+    </section>
 
     </section>
     <div id="myModal" class="modal">

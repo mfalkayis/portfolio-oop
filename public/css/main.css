@@ -106,49 +106,43 @@ h2 { font-size: 2.5rem; }
     transform: scale(1.05);
 }
 
-/* === Admin Section (CRUD) === */
+/* === Admin Section Styling Baru === */
 .admin-section {
-    background-color: #4a5c48; /* Warna lebih gelap untuk admin */
+    /* Kita buat lebih pendek, tidak perlu 100vh lagi */
+    min-height: auto; 
+    padding-bottom: 8rem;
+    text-align: center; /* Buat semua teks di tengah */
 }
 
-.admin-section table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #586457;
-    border-radius: 8px;
-    overflow: hidden; /* Untuk border-radius di tabel */
+.admin-section p {
+    margin-bottom: 2rem;
 }
 
-.admin-section th, .admin-section td {
-    border: 1px solid #6a7a69;
-    padding: 12px;
-    text-align: left;
+.admin-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.admin-section th {
-    background-color: #6a7a69;
-}
-
-.admin-section img {
-    max-width: 100px;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-}
-
-.admin-section a {
-    color: #b0c2af;
-}
-
-.btn-add {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #899A88;
-    color: #2a3329;
+.btn-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #f4f4f4; /* Warna putih seperti card */
+    color: #333; /* Warna icon plus gelap */
+    font-size: 3rem; /* Ukuran font untuk '+' */
+    font-weight: 300;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 50%; /* Membuatnya bulat */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-plus:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* === Card Grid (Untuk Sertifikat & Proyek) === */
