@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Buat pencapaian
         if($achievement->create()) {
             echo "Kegiatan berhasil ditambahkan.";
-            header("refresh:2;url=achievements.php"); // Arahkan ke halaman pencapaian
+            header("refresh:2;url=index.php#achievements"); 
         } else {
             echo "Gagal menambahkan kegiatan.";
         }

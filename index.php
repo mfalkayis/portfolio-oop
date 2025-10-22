@@ -170,6 +170,8 @@ $num_achievements = $result_achievements->rowCount(); // TAMBAHKAN INI
 
         <div class="admin-actions">
             <a href="ach_create_form.php" class="btn-plus" title="Tambah Pencapaian Baru">+</a>
+
+            <a href="manage_achievements.php" class="btn-manage" title="Kelola Pencapaian">Kelola Pencapaian</a>
         </div>
     </section>
 

@@ -1,16 +1,16 @@
 <?php
 include_once 'config/Database.php';
-include_once 'core/Certificate.php'; // Ganti model
+include_once 'core/Achievement.php'; // Ganti model
 
 $database = new Database();
 $db = $database->connect();
-$certificate = new Certificate($db); // Ganti object
+$achievement = new Achievement($db); // Ganti object
 
 if(isset($_GET['id'])) {
-    $certificate->id = $_GET['id'];
-    if($certificate->delete()) {
-        echo "Sertifikat berhasil dihapus.";
-        header("refresh:1;url=certificates.php"); // Arahkan ke halaman sertifikat
+    $achievement->id = $_GET['id'];
+    if($achievement->delete()) {
+        echo "Kegiatan berhasil dihapus.";
+        header("refresh:1;url=manage_achievements.php"); // Arahkan ke halaman pencapaian
     } else {
         echo "Gagal menghapus sertifikat.";
     }

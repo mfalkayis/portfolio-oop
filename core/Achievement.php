@@ -6,6 +6,7 @@ class Achievement {
     // Properti Sertifikat
     public $id;
     public $title;
+    public $description;
     public $image;
     public $verification_url;
     public $issued_date;
@@ -100,6 +101,7 @@ class Achievement {
         $query = 'UPDATE ' . $this->table . '
                   SET
                     title = :title,
+                    description = :description,
                     image = :image,
                     verification_url = :verification_url,
                     issued_date = :issued_date
@@ -110,6 +112,7 @@ class Achievement {
 
         // Bersihkan data
         $this->title = htmlspecialchars(strip_tags($this->title));
+        $this->description = htmlspecialchars(strip_tags($this->description));
         $this->image = htmlspecialchars(strip_tags($this->image));
         $this->verification_url = htmlspecialchars(strip_tags($this->verification_url));
         $this->issued_date = htmlspecialchars(strip_tags($this->issued_date));
@@ -117,6 +120,7 @@ class Achievement {
 
         // Binding data
         $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':image', $this->image);
         $stmt->bindParam(':verification_url', $this->verification_url);
         $stmt->bindParam(':issued_date', $this->issued_date);
