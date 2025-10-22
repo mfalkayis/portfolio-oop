@@ -73,14 +73,76 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
 
     <section id="skills" class="section-container">
         <h2>Skills</h2>
-        <p>Gatau</p>
+        <div class="skills-grid">
+
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">HTML5</span>
+                    <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">CSS3</span>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 85%;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 80%;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">PHP</span>
+                    <span class="skill-percent">75%</span>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">MySQL</span>
+                    <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 70%;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-percent">65%</span>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 65%;"></div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <section id="about" class="section-container">
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="public/images/nama-gambar-kamu.jpg" alt="Foto Profil Nathan Sterling">
+                <img src="public/images/nova.jpg" alt="Foto Profil Nova Reskianti">
             </div>
             <div class="about-text">
                 <p>
