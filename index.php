@@ -24,7 +24,7 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathan Sterling - Web Developer</title>
+    <title>Nova Reskianti</title>
     <link rel="stylesheet" href="public/css/main.css"> 
 </head>
 <body>
@@ -41,13 +41,13 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
 
     <section id="home" class="section-container hero-section">
         <div class="hero-text">
-            <h1>Nathan Sterling</h1>
-            <h2>Web Developer & Designer</h2>
-            <p>Crafting modern, responsive, and user-friendly web experiences.</p>
-            <a href="#projects" class="btn-primary">View My Work</a>
+            <h1>Nova Reskianti</h1>
+            <h2>Information System</h2>
+            <p>Institut Teknologi Kalimantan</p>
+            <a href="#certificates" class="btn-primary">View My Certificates</a>
         </div>
         <div class="hero-image">
-            <img src="public/images/nama-gambar-kamu.jpg" alt="Nathan Sterling">
+            <img src="public/images/nova.jpg" alt="Nova Reskianti">
         </div>
     </section>
 
@@ -73,17 +73,32 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
 
     <section id="skills" class="section-container">
         <h2>Skills</h2>
-        <p>Tampilkan logo-logo teknologi yang kamu kuasai (PHP, MySQL, JS, CSS, dll.)</p>
+        <p>Gatau</p>
     </section>
 
     <section id="about" class="section-container">
         <h2>About Me</h2>
-        <p>Paragraf singkat tentang dirimu, latar belakang pendidikan, dan minatmu di bidang IT.</p>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="public/images/nama-gambar-kamu.jpg" alt="Foto Profil Nathan Sterling">
+            </div>
+            <div class="about-text">
+                <p>
+                    Hi, I'm Nathan Sterling, a passionate web developer and designer with over 5 years of experience in creating beautiful, functional, and user-centered digital experiences.
+                </p>
+                <p>
+                    I specialize in building responsive websites and web applications using modern technologies like React, Node.js, and Python. My background in both development and design allows me to bridge the gap between aesthetics and functionality, ensuring that the websites I create not only look great but also perform exceptionally.
+                </p>
+                <p>
+                    When I'm not coding or designing, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through tech meetups and online communities.
+                </p>
+            </div>
+        </div>
     </section>
 
     <section id="admin" class="section-container admin-section">
         <h2>Admin Panel</h2>
-        <p>Area ini hanya untuk kamu mengelola konten website.</p>
+        <p>Tambah Proyek atau sertifikat</p>
 
         <h3>Kelola Proyek</h3>
         <a href="create_form.php" class="btn-add">Tambah Proyek Baru</a>
@@ -156,7 +171,7 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
-    
+
     <script src="public/js/main.js"></script>
     
 </body>
