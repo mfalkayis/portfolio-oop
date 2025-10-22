@@ -1,22 +1,16 @@
 <?php
 // Include file konfigurasi dan model
 include_once 'config/Database.php';
-include_once 'core/Project.php';
-include_once 'core/Certificate.php'; // TAMBAHKAN INI
+include_once 'core/Achievement.php'; 
 
 // Inisialisasi koneksi database
 $database = new Database();
 $db = $database->connect();
 
-// Inisialisasi object project
-$project = new Project($db);
-$result_projects = $project->read();
-$num_projects = $result_projects->rowCount();
-
-// Inisialisasi object certificate
-$certificate = new Certificate($db); // TAMBAHKAN INI
-$result_certificates = $certificate->read(); // TAMBAHKAN INI
-$num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
+// Inisialisasi object achievement
+$achievement = new Achievement($db); // TAMBAHKAN INI
+$result_achievements = $achievement->read(); // TAMBAHKAN INI
+$num_achievements = $result_achievements->rowCount(); // TAMBAHKAN INI
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +26,7 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
     <header class="navbar">
         <nav class="nav-container">
             <a href="#home" class="nav-link">Home</a>
-            <a href="#certificates" class="nav-link">Certificates</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#admin" class="nav-link">Admin Panel</a>
@@ -51,14 +45,14 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
         </div>
     </section>
 
-    <section id="certificates" class="section-container">
-        <h2>My Certificates</h2>
-        <div class="card-grid"> <?php 
+    <section id="achievements" class="section-container">
+        <h2>My Achievements</h2>
+        <div class="card-grid"> <?php
                 // Reset pointer hasil query sertifikat
-                $result_certificates->execute(); 
+                $result_achievements->execute(); 
             ?>
-            <?php if($num_certificates > 0): ?>
-                <?php while($row = $result_certificates->fetch(PDO::FETCH_ASSOC)): ?>
+            <?php if($num_achievements > 0): ?>
+                <?php while($row = $result_achievements->fetch(PDO::FETCH_ASSOC)): ?>
                 <?php extract($row); ?>
 
                 <div class="card">
@@ -68,11 +62,12 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
                             onclick="openModal(this)">
                     </div>
                     <div class="card-content">
-                        <h3><?php echo $title; ?></h3>
+                        <h3><?php echo $title; ?></h3> 
+                        <p class="card-description"><?php echo $description; ?></p> 
                         <?php if(!empty($issued_date)): ?>
-                            <p>Tanggal Terbit: <?php echo date("d M Y", strtotime($issued_date)); ?></p>
+                        <p>Tanggal Terbit: <?php echo date("d M Y", strtotime($issued_date)); ?></p>
                         <?php endif; ?>
-                        </div>
+                    </div>
                 </div>
 
                 <?php endwhile; ?>
@@ -171,22 +166,22 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
 
     <section id="admin" class="section-container admin-section">
         <h2>Admin Panel</h2>
-        <p>Tambah Proyek atau sertifikat</p>
-
-        <h3>Kelola Proyek</h3>
-        <a href="create_form.php" class="btn-add">Tambah Proyek Baru</a>
+        
+        <h3 style="margin-top: 40px;">Kelola Pengalaman</h3>
+        <a href="ach_create_form.php" class="btn-add">Tambah Pengalaman Baru</a>
         <table>
             <thead>
                 <tr>
                     <th>Gambar</th>
-                    <th>Judul Proyek</th>
+                    <th>Nama Kegiatan</th>
                     <th>Deskripsi</th>
+                    <th>Tanggal Terbit</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if($num_projects > 0): ?>
-                    <?php while($row = $result_projects->fetch(PDO::FETCH_ASSOC)): ?>
+                <?php if($num_achievements > 0): ?>
+                    <?php while($row = $result_achievements->fetch(PDO::FETCH_ASSOC)): ?>
                     <?php extract($row); ?>
                     <tr>
                         <td>
@@ -194,46 +189,14 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
                         </td>
                         <td><?php echo $title; ?></td>
                         <td><?php echo $description; ?></td>
-                        <td>
-                            <a href="edit_form.php?id=<?php echo $id; ?>">Edit</a>
-                            <a href="delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <tr><td colspan="4">Belum ada proyek.</td></tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-
-        <h3 style="margin-top: 40px;">Kelola Sertifikat</h3>
-        <a href="cert_create_form.php" class="btn-add">Tambah Sertifikat Baru</a>
-        <table>
-            <thead>
-                <tr>
-                    <th>Gambar</th>
-                    <th>Judul Sertifikat</th>
-                    <th>Tanggal Terbit</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if($num_certificates > 0): ?>
-                    <?php while($row = $result_certificates->fetch(PDO::FETCH_ASSOC)): ?>
-                    <?php extract($row); ?>
-                    <tr>
-                        <td>
-                            <img src="public/images/<?php echo $image; ?>" alt="<?php echo $title; ?>" width="100">
-                        </td>
-                        <td><?php echo $title; ?></td>
                         <td><?php echo $issued_date; ?></td>
                         <td>
-                            <a href="cert_delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                            <a href="ach_delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
                         </td>
                     </tr>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <tr><td colspan="4">Belum ada sertifikat.</td></tr>
+                    <tr><td colspan="4">Belum ada pengalaman.</td></tr>
                 <?php endif; ?>
             </tbody>
         </table>

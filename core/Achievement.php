@@ -1,7 +1,7 @@
 <?php
-class Certificate {
+class Achievement {
     private $conn;
-    private $table = 'certificates';
+    private $table = 'achievements';
 
     // Properti Sertifikat
     public $id;
@@ -17,25 +17,27 @@ class Certificate {
 
     // Method untuk Read (Membaca data)
     public function read() {
-        $query = 'SELECT id, title, image, verification_url, issued_date FROM ' . $this->table . ' ORDER BY created_at DESC';
+        $query = 'SELECT id, title, description, image, verification_url, issued_date FROM ' . $this->table . ' ORDER BY created_at DESC';
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
     public function create() {
-    $query = 'INSERT INTO ' . $this->table . ' SET title = :title, image = :image, verification_url = :verification_url, issued_date = :issued_date';
+    $query = 'INSERT INTO ' . $this->table . ' SET title = :title, description = :description, image = :image, verification_url = :verification_url, issued_date = :issued_date';
         
         $stmt = $this->conn->prepare($query);
 
         // Bersihkan data
         $this->title = htmlspecialchars(strip_tags($this->title));
+        $this->description = htmlspecialchars(strip_tags($this->description));
         $this->image = htmlspecialchars(strip_tags($this->image));
         $this->verification_url = htmlspecialchars(strip_tags($this->verification_url));
         $this->issued_date = htmlspecialchars(strip_tags($this->issued_date));
 
         // Binding data
         $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':image', $this->image);
         $stmt->bindParam(':verification_url', $this->verification_url);
         $stmt->bindParam(':issued_date', $this->issued_date);

@@ -152,7 +152,7 @@ h2 { font-size: 2.5rem; }
 }
 
 /* === Card Grid (Untuk Sertifikat & Proyek) === */
-#certificates h2 {
+#achievements h2 {
     text-align: center; /* Judul di tengah */
     font-size: 2.5rem;
     margin-bottom: 3rem;
@@ -208,6 +208,12 @@ h2 { font-size: 2.5rem; }
 .card-content p {
     font-size: 0.9rem;
     color: #666;
+}
+
+.card-content .card-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem; /* Beri jarak ke tanggal */
 }
 
 /* === Modal Styling === */
