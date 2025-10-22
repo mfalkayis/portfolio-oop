@@ -332,8 +332,8 @@ h2 { font-size: 2.5rem; }
     /* Buat 2 kolom */
     grid-template-columns: 1fr 1fr; 
     gap: 2.5rem; /* Jarak antar skill item */
-    max-width: 900px; /* Batasi lebar maksimum */
-    margin: 0 auto; /* Posisikan di tengah */
+    /*max-width: 900px; /* Batasi lebar maksimum */
+    /*margin: 0 auto; /* Posisikan di tengah */
 }
 
 .skill-header {
