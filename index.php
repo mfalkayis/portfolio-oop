@@ -53,17 +53,28 @@ $num_certificates = $result_certificates->rowCount(); // TAMBAHKAN INI
 
     <section id="certificates" class="section-container">
         <h2>My Certificates</h2>
-        <div class="certificates-grid">
+        <div class="card-grid"> <?php 
+                // Reset pointer hasil query sertifikat
+                $result_certificates->execute(); 
+            ?>
             <?php if($num_certificates > 0): ?>
                 <?php while($row = $result_certificates->fetch(PDO::FETCH_ASSOC)): ?>
                 <?php extract($row); ?>
-                <div class="cert-card">
-                    <img src="public/images/<?php echo $image; ?>" 
-                        alt="<?php echo $title; ?>" 
-                        class="cert-thumbnail"
-                        onclick="openModal(this)">
-                    <p class="cert-title"><?php echo $title; ?></p>
+
+                <div class="card">
+                    <div class="card-image-container">
+                        <img src="public/images/<?php echo $image; ?>" 
+                            alt="<?php echo $title; ?>"
+                            onclick="openModal(this)">
+                    </div>
+                    <div class="card-content">
+                        <h3><?php echo $title; ?></h3>
+                        <?php if(!empty($issued_date)): ?>
+                            <p>Tanggal Terbit: <?php echo date("d M Y", strtotime($issued_date)); ?></p>
+                        <?php endif; ?>
+                        </div>
                 </div>
+
                 <?php endwhile; ?>
             <?php else: ?>
                 <p>Belum ada sertifikat untuk ditampilkan.</p>

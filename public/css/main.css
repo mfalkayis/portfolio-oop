@@ -151,36 +151,63 @@ h2 { font-size: 2.5rem; }
     font-weight: bold;
 }
 
-/* === Certificates Section === */
-.certificates-grid {
+/* === Card Grid (Untuk Sertifikat & Proyek) === */
+#certificates h2 {
+    text-align: center; /* Judul di tengah */
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+    /* Buat 3 kolom di layar besar, 1 di layar kecil */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px; /* Batasi lebar maksimum */
+    margin: 0 auto; /* Posisikan di tengah */
 }
 
-.cert-card {
-    background-color: #4a5c48;
-    border-radius: 8px;
+.card {
+    background-color: #f4f4f4; /* Latar belakang card putih */
+    color: #333; /* Warna teks gelap */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cert-thumbnail {
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-image-container {
     width: 100%;
-    height: auto;
-    display: block;
-    cursor: pointer; /* Menandakan bisa diklik */
-    transition: transform 0.3s ease;
+    height: 250px;
+    overflow: hidden;
+    background-color: #e0e0e0; 
 }
 
-.cert-thumbnail:hover {
-    transform: scale(1.05);
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    cursor: pointer;
 }
 
-.cert-title {
-    padding: 1rem;
-    text-align: center;
-    font-weight: 500;
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #666;
 }
 
 /* === Modal Styling === */
