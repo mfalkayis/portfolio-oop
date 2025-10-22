@@ -58,13 +58,13 @@ h2 { font-size: 2.5rem; }
 
 /* === Section Container === */
 .section-container {
-    min-height: 100vh; /* Setiap section minimal setinggi layar */
     padding: 8rem 5%; /* Padding atas 8rem untuk memberi ruang dari navbar */
     border-bottom: 1px solid #6a7a69;
 }
 
 /* === Hero Section (Home) === */
 .hero-section {
+    min-height: 100vh;;
     display: flex;
     align-items: center;
     justify-content: space-around;
