@@ -13,8 +13,8 @@ html {
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     /* Warna latar utama dari gambar */
-    background-color: #586457; 
-    color: #F0F0F0; /* Warna teks utama */
+    background-color: #F9B5A9; 
+    color: #FFFFFF; /* Warna teks utama */
 }
 
 h1, h2, h3 {
@@ -30,7 +30,7 @@ h2 { font-size: 2.5rem; }
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(60, 71, 59, 0.9); /* Sedikit transparan */
+    background-color: rgba(249, 181, 169, 0.9); /* Sedikit transparan */
     padding: 1rem 0;
     z-index: 100;
     display: flex;
@@ -44,7 +44,7 @@ h2 { font-size: 2.5rem; }
 }
 
 .nav-link {
-    color: #F0F0F0;
+    color: #FFFFFF;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -53,13 +53,13 @@ h2 { font-size: 2.5rem; }
 }
 
 .nav-link:hover {
-    color: #b0c2af;
+    color: #F98B88;
 }
 
 /* === Section Container === */
 .section-container {
     padding: 8rem 5%; /* Padding atas 8rem untuk memberi ruang dari navbar */
-    border-bottom: 1px solid #6a7a69;
+    border-bottom: 1px solid #F98B88;
 }
 
 /* === Hero Section (Home) === */
@@ -93,8 +93,8 @@ h2 { font-size: 2.5rem; }
 
 .btn-primary {
     display: inline-block;
-    background-color: #899A88; /* Warna tombol dari gambar */
-    color: #2a3329;
+    background-color: #F98B88; /* Warna tombol dari gambar */
+    color: #FFFFFF;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
     font-weight: bold;
@@ -106,8 +106,9 @@ h2 { font-size: 2.5rem; }
     transform: scale(1.05);
 }
 
-/* === Admin Section Styling Baru === */
+/* === Admin Section  === */
 .admin-section {
+    background-color: #f4f4f4; 
     min-height: auto; 
     padding-bottom: 8rem;
     text-align: center; 
@@ -117,71 +118,101 @@ h2 { font-size: 2.5rem; }
     margin-bottom: 2rem;
 }
 
-.admin-actions {
+/* === Admin Section Styling Baru (Card) === */
+
+/* Container untuk semua card */
+.admin-action-cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Membuat card sama tinggi */
+    flex-wrap: wrap; /* Agar rapi di layar kecil */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Style untuk card individu */
+.admin-card {
+    background-color: #FFFFFF; /* Latar putih */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    width: 280px; /* Beri lebar tetap agar rapi */
+    border: 1px solid #eee;
+}
+
+.admin-card h3 {
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Container untuk tombol di dalam card */
+.card-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
 }
 
-.btn-plus {
-    display: flex;
+/* Style untuk tombol-tombolnya */
+.admin-card .btn-plus {
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+    background-color: #F98B88; /* Warna aksen gelap */
+    color: white;
+    /* Pastikan style ini ter-apply, hapus style .btn-plus lama jika ada */
+    display: flex; 
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
-    background-color: #f4f4f4; /* Warna putih seperti card */
-    color: #333; /* Warna icon plus gelap */
-    font-size: 3rem; /* Ukuran font untuk '+' */
-    font-weight: 300;
+    border-radius: 50%;
     text-decoration: none;
-    border-radius: 50%; /* Membuatnya bulat */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-plus:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.btn-manage {
-    display: inline-block;
-    padding: 0.8rem 1.5rem; /* Buat lebih kecil dari tombol plus */
-    background-color: #f4f4f4;
-    color: #333;
+.admin-card .btn-manage {
+    padding: 0.7rem 1.3rem;
     font-size: 1rem;
+    background-color: #f4f4f4; /* Warna netral */
+    /* Pastikan style ini ter-apply, hapus style .btn-manage lama jika ada */
+    display: inline-block;
+    color: #333;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 25px; /* Samakan dengan style tombol lain */
+    border-radius: 25px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-manage:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+.admin-card .btn-plus:hover {
+    background-color: #f76d69; 
+    transform: scale(1.1);
 }
 
-/* === Card Grid (Untuk Sertifikat & Proyek) === */
+.admin-card .btn-manage:hover {
+    transform: scale(1.05);
+}
+
+/* === Card Grid Achievements === */
 #achievements h2 {
-    text-align: center; /* Judul di tengah */
+    text-align: center; 
     font-size: 2.5rem;
     margin-bottom: 3rem;
 }
 
 .card-grid {
     display: grid;
-    /* Buat 3 kolom di layar besar, 1 di layar kecil */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    max-width: 1200px; /* Batasi lebar maksimum */
-    margin: 0 auto; /* Posisikan di tengah */
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 
 .card {
-    background-color: #f4f4f4; /* Latar belakang card putih */
-    color: #333; /* Warna teks gelap */
+    background-color: #f4f4f4; 
+    color: #333; 
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -225,7 +256,7 @@ h2 { font-size: 2.5rem; }
 .card-content .card-description {
     font-size: 0.9rem;
     color: #666;
-    margin-bottom: 1rem; /* Beri jarak ke tanggal */
+    margin-bottom: 1rem; 
 }
 
 /* === Modal Styling === */
@@ -346,20 +377,20 @@ h2 { font-size: 2.5rem; }
 
 .skill-percent {
     font-size: 1rem;
-    color: #b0c2af; /* Warna persen */
+    color: #F98B88; /* Warna persen */
 }
 
 .skill-bar-container {
     width: 100%;
     height: 12px;
-    background-color: #4a5c48; /* Warna bar yg gelap (latar) */
+    background-color: #FADCD6; /* Warna bar yg gelap (latar) */
     border-radius: 6px;
     overflow: hidden;
 }
 
 .skill-bar-fill {
     height: 100%;
-    background-color: #899A88; /* Warna bar yg terang (isi) */
+    background-color: #F98B88; /* Warna bar yg terang (isi) */
     border-radius: 6px;
 }
 

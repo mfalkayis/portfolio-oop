@@ -44,7 +44,7 @@ $num_skills = $result_skills->rowCount();
             <h1>Nova Reskianti</h1>
             <h2>Information System</h2>
             <p>Institut Teknologi Kalimantan</p>
-            <a href="#certificates" class="btn-primary">View My Certificates</a>
+            <a href="#achievements" class="btn-primary">Lihat Pengalaman Saya</a>
         </div>
         <div class="hero-image">
             <img src="public/images/nova.jpg" alt="Nova Reskianti">
@@ -130,14 +130,24 @@ $num_skills = $result_skills->rowCount();
 
     <section id="admin" class="section-container admin-section">
         <h2>Admin Panel</h2>
-        <p>Gunakan tombol di bawah untuk menambahkan pencapaian baru ke portofolio.</p>
+        <p>Gunakan tombol di bawah untuk menambahkan Pengalaman atau Skill baru ke portofolio.</p>
 
-        <div class="admin-actions">
-            <a href="ach_create_form.php" class="btn-plus" title="Tambah Pencapaian Baru">+</a>
+        <div class="admin-action-cards">
+            <div class="admin-card">
+                <h3>Pencapaian</h3>
+                <div class="card-buttons">
+                    <a href="ach_create_form.php" class="btn-plus" title="Tambah Pencapaian Baru">+</a>
+                    <a href="manage_achievements.php" class="btn-manage" title="Kelola Pencapaian">Kelola</a>
+                </div>
+            </div>
 
-            <a href="manage_achievements.php" class="btn-manage" title="Kelola Pencapaian">Kelola Pencapaian</a>
-        
-            <a href="manage_skills.php" class="btn-manage" title="Kelola Skills">Kelola Skills</a>
+            <div class="admin-card">
+                <h3>Skills</h3>
+                <div class="card-buttons">
+                    <a href="skill_create_form.php" class="btn-plus" title="Tambah Skill Baru">+</a>
+                    <a href="manage_skills.php" class="btn-manage" title="Kelola Skills">Kelola</a>
+                </div>
+            </div>
         </div>
     </section>
 
