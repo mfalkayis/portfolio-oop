@@ -116,14 +116,12 @@ $num_skills = $result_skills->rowCount();
             </div>
             <div class="about-text">
                 <p>
-                    Hi, I'm Nathan Sterling, a passionate web developer and designer with over 5 years of experience in creating beautiful, functional, and user-centered digital experiences.
+                    Halo! Saya Nova Reskianti, mahasiswi Sistem Informasi di Institut Teknologi Kalimantan. Saya adalah individu yang adaptif, efisien dalam memecahkan masalah, dan selalu terbuka untuk mencoba hal-hal baru.
                 </p>
                 <p>
-                    I specialize in building responsive websites and web applications using modern technologies like React, Node.js, and Python. My background in both development and design allows me to bridge the gap between aesthetics and functionality, ensuring that the websites I create not only look great but also perform exceptionally.
+                    Saya memiliki minat kuat di bidang desain UI/UX (Canva, Figma) dan External Relations, yang saya kembangkan secara aktif di Himpunan Mahasiswa (HMSI) dan IEEE ITK. Pengalaman kepanitiaan di divisi PDD dan Acara telah melatih saya untuk bertanggung jawab, mengelola deadline secara efisien, dan pentingnya koordinasi tim.
                 </p>
-                <p>
-                    When I'm not coding or designing, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through tech meetups and online communities.
-                </p>
+                
             </div>
         </div>
     </section>
