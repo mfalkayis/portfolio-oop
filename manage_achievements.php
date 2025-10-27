@@ -39,8 +39,8 @@ $num_achievements = $result_achievements->rowCount();
         .btn-back {
             display: inline-block;
             padding: 10px 15px;
-            background-color: #F98B88;
-            color: white;
+            background-color: #f9b5a9;
+            color: #333;
             text-decoration: none;
             border-radius: 5px;
         }

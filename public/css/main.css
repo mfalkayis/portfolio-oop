@@ -1,4 +1,5 @@
 /* === Global Reset & Setup === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +12,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     /* Warna latar utama dari gambar */
     background-color: #F9B5A9; 
     color: #FFFFFF; /* Warna teks utama */
@@ -404,13 +405,14 @@ h2 { font-size: 2.5rem; }
 }
 
 .admin-table th, .admin-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #F98B88;
     padding: 12px;
     text-align: left;
     color: #333; /* Pastikan teks terbaca */
 }
 
 .admin-table th {
+    background-color: #F9B5A9;
     background-color: #F98B88;
 }
 
