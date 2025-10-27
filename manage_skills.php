@@ -39,7 +39,7 @@ $num_skills = $result_skills->rowCount();
         .btn-back {
             display: inline-block;
             padding: 10px 15px;
-            background-color: #586457;
+            background-color: #F98B88;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -58,6 +58,7 @@ $num_skills = $result_skills->rowCount();
                 <tr>
                     <th>Nama Skill</th>
                     <th>Persentase</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
