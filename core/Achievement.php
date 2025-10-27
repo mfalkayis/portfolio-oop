@@ -33,15 +33,27 @@ class Achievement {
         $this->title = htmlspecialchars(strip_tags($this->title));
         $this->description = htmlspecialchars(strip_tags($this->description));
         $this->image = htmlspecialchars(strip_tags($this->image));
-        $this->verification_url = htmlspecialchars(strip_tags($this->verification_url));
-        $this->issued_date = htmlspecialchars(strip_tags($this->issued_date));
+
+        
 
         // Binding data
         $stmt->bindParam(':title', $this->title);
         $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':image', $this->image);
-        $stmt->bindParam(':verification_url', $this->verification_url);
-        $stmt->bindParam(':issued_date', $this->issued_date);
+
+        if (is_null($this->verification_url)) {
+            $stmt->bindValue(':verification_url', null, PDO::PARAM_NULL);
+        } else {
+            $clean_url = htmlspecialchars(strip_tags($this->verification_url));
+            $stmt->bindParam(':verification_url', $clean_url);
+        }
+
+        if (is_null($this->issued_date)) {
+            $stmt->bindValue(':issued_date', null, PDO::PARAM_NULL);
+        } else {
+            $clean_date = htmlspecialchars(strip_tags($this->issued_date));
+            $stmt->bindParam(':issued_date', $clean_date);
+        }
 
         if($stmt->execute()) {
             return true;
@@ -114,9 +126,21 @@ class Achievement {
         $this->title = htmlspecialchars(strip_tags($this->title));
         $this->description = htmlspecialchars(strip_tags($this->description));
         $this->image = htmlspecialchars(strip_tags($this->image));
-        $this->verification_url = htmlspecialchars(strip_tags($this->verification_url));
-        $this->issued_date = htmlspecialchars(strip_tags($this->issued_date));
         $this->id = htmlspecialchars(strip_tags($this->id));
+
+        if (is_null($this->verification_url)) {
+            $stmt->bindValue(':verification_url', null, PDO::PARAM_NULL);
+        } else {
+            $clean_url = htmlspecialchars(strip_tags($this->verification_url));
+            $stmt->bindParam(':verification_url', $clean_url);
+        }
+
+        if (is_null($this->issued_date)) {
+            $stmt->bindValue(':issued_date', null, PDO::PARAM_NULL);
+        } else {
+            $clean_date = htmlspecialchars(strip_tags($this->issued_date));
+            $stmt->bindParam(':issued_date', $clean_date);
+        }
 
         // Binding data
         $stmt->bindParam(':title', $this->title);

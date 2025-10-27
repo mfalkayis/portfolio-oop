@@ -27,8 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Set properti lainnya
     $achievement->title = $_POST['title'];
     $achievement->description = $_POST['description'];
-    $achievement->verification_url = $_POST['verification_url'];
-    $achievement->issued_date = $_POST['issued_date'];
+
+    if (empty($_POST['verification_url'])) {
+        $achievement->verification_url = null;
+    } else {
+        $achievement->verification_url = $_POST['verification_url'];
+    }
+    
+    if (empty($_POST['issued_date'])) {
+        $achievement->issued_date = null;
+    } else {
+        $achievement->issued_date = $_POST['issued_date'];
+    }
 
     // Update data
     if($achievement->update()) {

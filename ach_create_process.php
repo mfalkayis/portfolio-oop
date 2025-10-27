@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $achievement->title = $_POST['title'];
         $achievement->description = $_POST['description'];
         $achievement->image = $image;
-        $achievement->verification_url = $_POST['verification_url'];
-        $achievement->issued_date = $_POST['issued_date'];
+        $achievement->verification_url = !empty($_POST['verification_url']) ? $_POST['verification_url'] : null;
+        $achievement->issued_date = !empty($_POST['issued_date']) ? $_POST['issued_date'] : null;
 
         // Buat pencapaian
         if($achievement->create()) {
