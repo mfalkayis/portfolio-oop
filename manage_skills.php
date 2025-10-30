@@ -69,8 +69,8 @@ $num_skills = $result_skills->rowCount();
                         <td><?php echo $name; ?></td>
                         <td><?php echo $percentage; ?>%</td>
                         <td>
-                            <a href="skill_edit_form.php?id=<?php echo $id; ?>">Edit</a>
-                            <a href="skill_delete.php?id=<?php echo $id; ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                            <a href="skill_edit_form.php?id=<?php echo $id; ?>" class="btn-action btn-edit">Edit</a>
+                            <a href="skill_delete.php?id=<?php echo $id; ?>" class="btn-action btn-delete" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
                         </td>
                     </tr>
                     <?php endwhile; ?>

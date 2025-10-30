@@ -1,7 +1,7 @@
 <?php
-class Achievement {
+class Experience {
     private $conn;
-    private $table = 'achievements';
+    private $table = 'experiences';
 
     // Properti Sertifikat
     public $id;

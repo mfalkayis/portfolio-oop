@@ -198,8 +198,56 @@ h2 { font-size: 2.5rem; }
     transform: scale(1.05);
 }
 
+/* === Styling Tombol Edit dan Hapus di Tabel Admin === */
+
+/* Ini untuk menengahkan tombol di dalam sel */
+.cell-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Jarak antar tombol */
+    padding: 5px 0;
+}
+
+/* Style dasar untuk kedua tombol */
+.btn-action {
+    display: inline-block;
+    padding: 8px 18px;     /* Atur ukuran kotak tombol */
+    border-radius: 12px;   /* Membuat sudutnya rounded */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border: 2px solid #F98B88; /* Border untuk kedua tombol */
+    margin: 0;
+}
+
+/* Style untuk Tombol EDIT (Isi) */
+.btn-edit {
+    background-color: #F98B88; /* Warna pink peach */
+    color: #FFFFFF; /* Teks putih */
+}
+
+.btn-edit:hover {
+    background-color: #f76d69; /* Sedikit lebih gelap saat hover */
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+/* Style untuk Tombol HAPUS (Outline) */
+.btn-delete {
+    background-color: #F98B88; /* Warna pink peach */
+    color: #FFFFFF; /* Tanpa latar */
+}
+
+.btn-delete:hover {
+    background-color: #f76d69; /* Balik jadi isi saat hover */
+    color: #FFFFFF; /* Teks jadi putih saat hover */
+    transform: translateY(-2px);
+}
+
 /* === Card Grid Achievements === */
-#achievements h2 {
+#experience h2 {
     text-align: center; 
     font-size: 2.5rem;
     margin-bottom: 3rem;

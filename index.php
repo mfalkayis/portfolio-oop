@@ -1,17 +1,18 @@
 <?php
 // Include file konfigurasi dan model
 include_once 'config/Database.php';
-include_once 'core/Achievement.php'; 
+include_once 'core/Experience.php'; 
 include_once 'core/Skill.php';
 
 // Inisialisasi koneksi database
 $database = new Database();
 $db = $database->connect();
 
-// Inisialisasi object achievement
-$achievement = new Achievement($db); 
-$result_achievements = $achievement->read(); 
-$num_achievements = $result_achievements->rowCount(); 
+// Inisialisasi object experience
+$experience = new Experience($db);
+
+$result_experiences = $experience->read(); 
+$num_experiences = $result_experiences->rowCount(); 
 
 // Inisialisasi object skill
 $skill = new Skill($db);
@@ -32,7 +33,7 @@ $num_skills = $result_skills->rowCount();
     <header class="navbar">
         <nav class="nav-container">
             <a href="#home" class="nav-link">Home</a>
-            <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#experience" class="nav-link">Experience</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#admin" class="nav-link">Admin Panel</a>
@@ -44,21 +45,21 @@ $num_skills = $result_skills->rowCount();
             <h1>Nova Reskianti</h1>
             <h2>Information System</h2>
             <p>Institut Teknologi Kalimantan</p>
-            <a href="#achievements" class="btn-primary">Lihat Pengalaman Saya</a>
+            <a href="#experience" class="btn-primary">Lihat Pengalaman Saya</a>
         </div>
         <div class="hero-image">
             <img src="public/images/nova.jpg" alt="Nova Reskianti">
         </div>
     </section>
 
-    <section id="achievements" class="section-container">
-        <h2>My Achievements</h2>
+    <section id="experience" class="section-container">
+        <h2>My Experience</h2>
         <div class="card-grid"> <?php
                 // Reset pointer hasil query sertifikat
-                $result_achievements->execute(); 
+                $result_experiences->execute(); 
             ?>
-            <?php if($num_achievements > 0): ?>
-                <?php while($row = $result_achievements->fetch(PDO::FETCH_ASSOC)): ?>
+            <?php if($num_experiences > 0): ?>
+                <?php while($row = $result_experiences->fetch(PDO::FETCH_ASSOC)): ?>
                 <?php extract($row); ?>
 
                 <div class="card">
@@ -132,10 +133,10 @@ $num_skills = $result_skills->rowCount();
 
         <div class="admin-action-cards">
             <div class="admin-card">
-                <h3>Pencapaian</h3>
+                <h3>Pengalaman</h3>
                 <div class="card-buttons">
-                    <a href="ach_create_form.php" class="btn-plus" title="Tambah Pencapaian Baru">+</a>
-                    <a href="manage_achievements.php" class="btn-manage" title="Kelola Pencapaian">Kelola</a>
+                    <a href="ach_create_form.php" class="btn-plus" title="Tambah Pengalaman Baru">+</a>
+                    <a href="manage_experiences.php" class="btn-manage" title="Kelola Pengalaman">Kelola</a>
                 </div>
             </div>
 

@@ -8,7 +8,7 @@
 <body>
     <div class="form-container">
         <h2>Form Tambah Pengalaman</h2>
-        <form action="ach_create_process.php" method="POST" enctype="multipart/form-data">
+        <form action="exp_create_process.php" method="POST" enctype="multipart/form-data">
             
             <div class="form-group">
                 <label for="title">Nama Kegiatan:</label>
@@ -37,7 +37,7 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn-submit">Simpan</button>
-                <a href="manage_achievements.php" class="btn-cancel">Batal</a>
+                <a href="manage_experiences.php" class="btn-cancel">Batal</a>
             </div>
         </form>
     </div>
