@@ -1,7 +1,7 @@
 <?php
 // Include file konfigurasi dan model
-include_once 'config/Database.php';
-include_once 'core/Skill.php'; 
+include_once '../config/Database.php';
+include_once '../core/Skill.php'; 
 
 // Inisialisasi koneksi database
 $database = new Database();
@@ -18,7 +18,7 @@ $num_skills = $result_skills->rowCount();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Skill</title>
-    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="../public/css/main.css">
     <style>
         /* Style khusus untuk halaman manage */
         body { background-color: #f4f4f4; color: #333; }
@@ -40,9 +40,14 @@ $num_skills = $result_skills->rowCount();
             display: inline-block;
             padding: 10px 15px;
             background-color: #F98B88;
-            color: white;
+            color: #333;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s ease; 
+        }
+        .btn-back:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -51,7 +56,7 @@ $num_skills = $result_skills->rowCount();
     <div class="manage-container">
         <div class="manage-header">
             <h2>Kelola Skill</h2>
-            <a href="index.php#admin" class="btn-back">Kembali ke Portfolio</a>
+            <a href="../index.php#admin" class="btn-back">Kembali ke Portfolio</a>
         </div>
 
         <table class="admin-table"> <thead>

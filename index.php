@@ -135,16 +135,16 @@ $num_skills = $result_skills->rowCount();
             <div class="admin-card">
                 <h3>Pengalaman</h3>
                 <div class="card-buttons">
-                    <a href="ach_create_form.php" class="btn-plus" title="Tambah Pengalaman Baru">+</a>
-                    <a href="manage_experiences.php" class="btn-manage" title="Kelola Pengalaman">Kelola</a>
+                    <a href="experience/exp_create_form.php" class="btn-plus" title="Tambah Pengalaman Baru">+</a>
+                    <a href="experience/manage_experiences.php" class="btn-manage" title="Kelola Pengalaman">Kelola</a>
                 </div>
             </div>
 
             <div class="admin-card">
                 <h3>Skills</h3>
                 <div class="card-buttons">
-                    <a href="skill_create_form.php" class="btn-plus" title="Tambah Skill Baru">+</a>
-                    <a href="manage_skills.php" class="btn-manage" title="Kelola Skills">Kelola</a>
+                    <a href="skill/skill_create_form.php" class="btn-plus" title="Tambah Skill Baru">+</a>
+                    <a href="skill/manage_skills.php" class="btn-manage" title="Kelola Skills">Kelola</a>
                 </div>
             </div>
         </div>

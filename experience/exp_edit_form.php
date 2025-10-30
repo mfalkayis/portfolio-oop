@@ -1,6 +1,6 @@
 <?php
-include_once 'config/Database.php';
-include_once 'core/Experience.php';
+include_once '../config/Database.php';
+include_once '../core/Experience.php';
 
 $database = new Database();
 $db = $database->connect();
@@ -15,8 +15,8 @@ $experience->read_single();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Edit ?Pengalaman</title>
-    <link rel="stylesheet" href="public/css/main.css"> <style>
+    <title>Edit Pengalaman</title>
+    <link rel="stylesheet" href="../public/css/main.css"> <style>
         body { background-color: #f4f4f4; }
         .form-container {
             max-width: 600px;

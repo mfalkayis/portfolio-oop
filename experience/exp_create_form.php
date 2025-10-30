@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Pengalaman</title>
-    <link rel="stylesheet" href="public/css/forms.css"> </head>
+    <link rel="stylesheet" href="../public/css/forms.css"> </head>
 <body>
     <div class="form-container">
         <h2>Form Tambah Pengalaman</h2>

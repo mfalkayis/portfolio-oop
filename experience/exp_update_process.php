@@ -1,6 +1,6 @@
 <?php
-include_once 'config/Database.php';
-include_once 'core/Experience.php';
+include_once '../config/Database.php';
+include_once '../core/Experience.php';
 
 $database = new Database();
 $db = $database->connect();
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Cek jika ada gambar baru
     if (!empty($_FILES["image"]["name"])) {
         $image = $_FILES['image']['name'];
-        $target_file = "public/images/" . basename($image);
+        $target_file = "../public/images/" . basename($image);
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $experience->image = $image;

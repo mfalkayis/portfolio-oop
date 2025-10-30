@@ -1,6 +1,6 @@
 <?php
-include_once 'config/Database.php';
-include_once 'core/Skill.php';
+include_once '../config/Database.php';
+include_once '../core/Skill.php';
 
 $database = new Database();
 $db = $database->connect();
@@ -16,7 +16,7 @@ $skill->read_single();
 <html lang="en">
 <head>
     <title>Edit Skill</title>
-    <link rel="stylesheet" href="public/css/main.css"> <style>
+    <link rel="stylesheet" href="../public/css/main.css"> <style>
         body { background-color: #f4f4f4; }
         .form-container {
             max-width: 600px;

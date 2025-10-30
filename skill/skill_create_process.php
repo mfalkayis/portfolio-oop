@@ -1,6 +1,6 @@
 <?php
-include_once 'config/Database.php';
-include_once 'core/Skill.php'; 
+include_once '../config/Database.php';
+include_once '../core/Skill.php'; 
 
 $database = new Database();
 $db = $database->connect();

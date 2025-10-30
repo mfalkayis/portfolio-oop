@@ -1,6 +1,6 @@
 <?php
-include_once 'config/Database.php';
-include_once 'core/Experience.php'; // Ganti model
+include_once '../config/Database.php';
+include_once '../core/Experience.php'; // Ganti model
 
 $database = new Database();
 $db = $database->connect();

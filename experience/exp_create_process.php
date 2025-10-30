@@ -1,6 +1,6 @@
 <?php
-include_once 'config/Database.php';
-include_once 'core/Experience.php'; 
+include_once '../config/Database.php';
+include_once '../core/Experience.php'; 
 
 $database = new Database();
 $db = $database->connect();
@@ -8,7 +8,7 @@ $experience = new Experience($db); // Ganti object
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $image = $_FILES['image']['name'];
-    $target_dir = "public/images/";
+    $target_dir = "../public/images/";
     $target_file = $target_dir . basename($image);
 
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Buat pencapaian
         if($experience->create()) {
             echo "Pengalaman berhasil ditambahkan.";
-            header("refresh:2;url=index.php#experiences"); 
+            header("refresh:2;url=../index.php#experiences"); 
         } else {
             echo "Gagal menambahkan pengalaman.";
         }
