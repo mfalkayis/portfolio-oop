@@ -3,6 +3,7 @@
 include_once 'config/Database.php';
 include_once 'core/Experience.php'; 
 include_once 'core/Skill.php';
+include_once 'core/Education.php';
 
 // Inisialisasi koneksi database
 $database = new Database();
@@ -10,7 +11,6 @@ $db = $database->connect();
 
 // Inisialisasi object experience
 $experience = new Experience($db);
-
 $result_experiences = $experience->read(); 
 $num_experiences = $result_experiences->rowCount(); 
 
@@ -18,6 +18,12 @@ $num_experiences = $result_experiences->rowCount();
 $skill = new Skill($db);
 $result_skills = $skill->read();
 $num_skills = $result_skills->rowCount();
+
+// Inisialisasi object education
+$education = new Education($db);
+$result_education = $education->read();
+$num_education = $result_education->rowCount();
+
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +41,7 @@ $num_skills = $result_skills->rowCount();
             <a href="#home" class="nav-link">Home</a>
             <a href="#experience" class="nav-link">Experience</a>
             <a href="#skills" class="nav-link">Skills</a>
+            <a href="#education" class="nav-link">Education</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#admin" class="nav-link">Admin Panel</a>
         </nav>
@@ -107,6 +114,37 @@ $num_skills = $result_skills->rowCount();
         <?php else: ?>
             <p style="text-align: center;">Belum ada data skill. Silakan tambahkan melalui Admin Panel.</p>
         <?php endif; ?>
+    </section>
+    
+    <section id="education" class="section-container">
+        <h2>Education</h2>
+        <div class="education-list">
+
+            <?php if($num_education > 0): ?>
+                <?php while($row = $result_education->fetch(PDO::FETCH_ASSOC)): ?>
+                <?php extract($row); ?>
+
+                <div class="education-item">
+                    <div class="education-logo">
+                        <?php if(!empty($logo)): ?>
+                            <img src="public/images/<?php echo $logo; ?>" alt="<?php echo $school_name; ?>">
+                        <?php else: ?>
+                            <div class="logo-placeholder"></div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="education-details">
+                        <h3><?php echo $school_name; ?></h3>
+                        <p class="degree"><?php echo $degree; ?>, <?php echo $field_of_study; ?></p>
+                        <p class="year"><?php echo $year_period; ?></p>
+                    </div>
+                </div>
+
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p style="text-align: center;">Belum ada data pendidikan.</p>
+            <?php endif; ?>
+
+        </div>
     </section>
 
     <section id="about" class="section-container">

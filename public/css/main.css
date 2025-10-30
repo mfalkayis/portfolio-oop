@@ -202,48 +202,45 @@ h2 { font-size: 2.5rem; }
 
 /* Ini untuk menengahkan tombol di dalam sel */
 .cell-actions {
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Jarak antar tombol */
+    gap: 10px; 
     padding: 5px 0;
 }
 
 /* Style dasar untuk kedua tombol */
 .btn-action {
     display: inline-block;
-    padding: 8px 18px;     /* Atur ukuran kotak tombol */
-    border-radius: 12px;   /* Membuat sudutnya rounded */
+    padding: 8px 18px;    
+    border-radius: 12px;   
     color: #FFFFFF;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.2s ease;
-    border: 2px solid #F98B88; /* Border untuk kedua tombol */
+    border: 2px solid #F98B88; 
     margin: 0;
 }
 
-/* Style untuk Tombol EDIT (Isi) */
 .btn-edit {
-    background-color: #F98B88; /* Warna pink peach */
-    color: #FFFFFF; /* Teks putih */
+    background-color: #F98B88; 
+    color: #FFFFFF; 
 }
 
 .btn-edit:hover {
-    background-color: #f76d69; /* Sedikit lebih gelap saat hover */
+    background-color: #f76d69; 
     color: #FFFFFF;
     transform: translateY(-2px);
 }
 
-/* Style untuk Tombol HAPUS (Outline) */
 .btn-delete {
-    background-color: #F98B88; /* Warna pink peach */
-    color: #FFFFFF; /* Tanpa latar */
+    background-color: #F98B88; 
+    color: #FFFFFF; 
 }
 
 .btn-delete:hover {
-    background-color: #f76d69; /* Balik jadi isi saat hover */
-    color: #FFFFFF; /* Teks jadi putih saat hover */
+    background-color: #f76d69; 
+    color: #FFFFFF; 
     transform: translateY(-2px);
 }
 
@@ -444,6 +441,69 @@ h2 { font-size: 2.5rem; }
     height: 100%;
     background-color: #F98B88; /* Warna bar yg terang (isi) */
     border-radius: 6px;
+}
+
+/* === Education Section === */
+#education h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.education-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: #f4f4f4; /* Latar card putih/abu */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.education-logo {
+    flex-shrink: 0;
+}
+
+.education-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%; /* Membuat logo bulat */
+    background-color: #fff; /* Latar putih di belakang logo */
+}
+
+.education-logo .logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+}
+
+.education-details h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.education-details p.degree {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.education-details p.year {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.25rem;
 }
 
 /* Style untuk tabel di halaman manage */
