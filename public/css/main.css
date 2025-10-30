@@ -1,4 +1,3 @@
-/* === Global Reset & Setup === */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 * {
     margin: 0;
@@ -6,16 +5,14 @@
     box-sizing: border-box;
 }
 
-/* Aktifkan smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Warna latar utama dari gambar */
     background-color: #F9B5A9; 
-    color: #FFFFFF; /* Warna teks utama */
+    color: #FFFFFF; 
 }
 
 h1, h2, h3 {
@@ -27,11 +24,11 @@ h2 { font-size: 2.5rem; }
 
 /* === Navbar === */
 .navbar {
-    position: fixed; /* Tetap di atas saat scroll */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(249, 181, 169, 0.9); /* Sedikit transparan */
+    background-color: rgba(249, 181, 169, 0.9); 
     padding: 1rem 0;
     z-index: 100;
     display: flex;
@@ -59,7 +56,7 @@ h2 { font-size: 2.5rem; }
 
 /* === Section Container === */
 .section-container {
-    padding: 8rem 5%; /* Padding atas 8rem untuk memberi ruang dari navbar */
+    padding: 8rem 5%; 
     border-bottom: 1px solid #F98B88;
 }
 
@@ -89,12 +86,12 @@ h2 { font-size: 2.5rem; }
 
 .hero-image img {
     width: 100%;
-    border-radius: 12px; /* Membuat gambar sedikit melengkung */
+    border-radius: 12px; 
 }
 
 .btn-primary {
     display: inline-block;
-    background-color: #F98B88; /* Warna tombol dari gambar */
+    background-color: #F98B88; 
     color: #FFFFFF;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
@@ -107,144 +104,7 @@ h2 { font-size: 2.5rem; }
     transform: scale(1.05);
 }
 
-/* === Admin Section  === */
-.admin-section {
-    color : #333;
-    background-color: #f4f4f4; 
-    min-height: auto; 
-    padding-bottom: 8rem;
-    text-align: center; 
-}
-
-.admin-section p {
-    color : #333;
-    margin-bottom: 2rem;
-}
-
-/* === Admin Section Styling Baru (Card) === */
-
-/* Container untuk semua card */
-.admin-action-cards {
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* Membuat card sama tinggi */
-    flex-wrap: wrap; /* Agar rapi di layar kecil */
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-/* Style untuk card individu */
-.admin-card {
-    background-color: #FFFFFF; /* Latar putih */
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    width: 280px; /* Beri lebar tetap agar rapi */
-    border: 1px solid #eee;
-}
-
-.admin-card h3 {
-    font-size: 1.75rem;
-    color: #333;
-    margin-bottom: 1.5rem;
-}
-
-/* Container untuk tombol di dalam card */
-.card-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-/* Style untuk tombol-tombolnya */
-.admin-card .btn-plus {
-    width: 50px;
-    height: 50px;
-    font-size: 2.5rem;
-    background-color: #F98B88; /* Warna aksen gelap */
-    color: white;
-    /* Pastikan style ini ter-apply, hapus style .btn-plus lama jika ada */
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.admin-card .btn-manage {
-    padding: 0.7rem 1.3rem;
-    font-size: 1rem;
-    background-color: #f4f4f4; /* Warna netral */
-    /* Pastikan style ini ter-apply, hapus style .btn-manage lama jika ada */
-    display: inline-block;
-    color: #333;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.admin-card .btn-plus:hover {
-    background-color: #f76d69; 
-    transform: scale(1.1);
-}
-
-.admin-card .btn-manage:hover {
-    transform: scale(1.05);
-}
-
-/* === Styling Tombol Edit dan Hapus di Tabel Admin === */
-
-/* Ini untuk menengahkan tombol di dalam sel */
-.cell-actions {
-    justify-content: center;
-    align-items: center;
-    gap: 10px; 
-    padding: 5px 0;
-}
-
-/* Style dasar untuk kedua tombol */
-.btn-action {
-    display: inline-block;
-    padding: 8px 18px;    
-    border-radius: 12px;   
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-    border: 2px solid #F98B88; 
-    margin: 0;
-}
-
-.btn-edit {
-    background-color: #F98B88; 
-    color: #FFFFFF; 
-}
-
-.btn-edit:hover {
-    background-color: #f76d69; 
-    color: #FFFFFF;
-    transform: translateY(-2px);
-}
-
-.btn-delete {
-    background-color: #F98B88; 
-    color: #FFFFFF; 
-}
-
-.btn-delete:hover {
-    background-color: #f76d69; 
-    color: #FFFFFF; 
-    transform: translateY(-2px);
-}
-
-/* === Card Grid Achievements === */
+/* === Experience Section === */
 #experience h2 {
     text-align: center; 
     font-size: 2.5rem;
@@ -310,7 +170,7 @@ h2 { font-size: 2.5rem; }
 
 /* === Modal Styling === */
 .modal {
-    display: none; /* Sembunyi secara default */
+    display: none; 
     position: fixed;
     z-index: 200;
     padding-top: 100px;
@@ -364,45 +224,9 @@ h2 { font-size: 2.5rem; }
     height: 150px;
 }
 
-/* === About Me Section === */
-#about h2 {
-    text-align: center; /* Judul di tengah */
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-.about-content {
-    display: flex;
-    align-items: center; /* Vertikal di tengah */
-    justify-content: center;
-    gap: 3rem; /* Jarak antara gambar dan teks */
-}
-
-.about-image {
-    flex: 1; /* Lebar kolom gambar */
-    max-width: 400px;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.about-text {
-    flex: 2; /* Lebar kolom teks, 2x lebih besar dari gambar */
-    max-width: 700px;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem; /* Jarak antar paragraf */
-}
-
 /* === Skills Section === */
 #skills h2 {
-    text-align: center; /* Judul di tengah */
+    text-align: center; 
     font-size: 2.5rem;
     margin-bottom: 3rem;
 }
@@ -426,20 +250,20 @@ h2 { font-size: 2.5rem; }
 
 .skill-percent {
     font-size: 1rem;
-    color: #F98B88; /* Warna persen */
+    color: #F98B88; 
 }
 
 .skill-bar-container {
     width: 100%;
     height: 12px;
-    background-color: #FADCD6; /* Warna bar yg gelap (latar) */
+    background-color: #FADCD6; 
     border-radius: 6px;
     overflow: hidden;
 }
 
 .skill-bar-fill {
     height: 100%;
-    background-color: #F98B88; /* Warna bar yg terang (isi) */
+    background-color: #F98B88; 
     border-radius: 6px;
 }
 
@@ -462,7 +286,7 @@ h2 { font-size: 2.5rem; }
     display: flex;
     align-items: center;
     gap: 2rem;
-    background-color: #f4f4f4; /* Latar card putih/abu */
+    background-color: #f4f4f4; 
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
@@ -476,8 +300,8 @@ h2 { font-size: 2.5rem; }
     width: 80px;
     height: 80px;
     object-fit: contain;
-    border-radius: 50%; /* Membuat logo bulat */
-    background-color: #fff; /* Latar putih di belakang logo */
+    border-radius: 50%; 
+    background-color: #fff; 
 }
 
 .education-logo .logo-placeholder {
@@ -506,7 +330,168 @@ h2 { font-size: 2.5rem; }
     margin-top: 0.25rem;
 }
 
-/* Style untuk tabel di halaman manage */
+/* === About Me Section === */
+#about h2 {
+    text-align: center; 
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem; 
+}
+
+.about-image {
+    flex: 1; 
+    max-width: 400px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.about-text {
+    flex: 2; 
+    max-width: 700px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem; 
+}
+
+/* === Admin Section  === */
+.admin-section {
+    color : #333;
+    background-color: #f4f4f4; 
+    min-height: auto; 
+    padding-bottom: 8rem;
+    text-align: center; 
+}
+
+.admin-section p {
+    color : #333;
+    margin-bottom: 2rem;
+}
+
+.admin-action-cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; 
+    flex-wrap: wrap; 
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.admin-card {
+    background-color: #FFFFFF; 
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    width: 280px; 
+    border: 1px solid #eee;
+}
+
+.admin-card h3 {
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.admin-card .btn-plus {
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+    background-color: #F98B88; 
+    color: white;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-card .btn-manage {
+    padding: 0.7rem 1.3rem;
+    font-size: 1rem;
+    background-color: #f4f4f4; 
+    display: inline-block;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-card .btn-plus:hover {
+    background-color: #f76d69; 
+    transform: scale(1.1);
+}
+
+.admin-card .btn-manage:hover {
+    transform: scale(1.05);
+}
+
+.cell-actions {
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+    padding: 5px 0;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 8px 18px;    
+    border-radius: 12px;   
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border: 2px solid #F98B88; 
+    margin: 0;
+}
+
+.btn-edit {
+    background-color: #F98B88; 
+    color: #FFFFFF; 
+}
+
+.btn-edit:hover {
+    background-color: #f76d69; 
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background-color: #F98B88; 
+    color: #FFFFFF; 
+}
+
+.btn-delete:hover {
+    background-color: #f76d69; 
+    color: #FFFFFF; 
+    transform: translateY(-2px);
+}
+
+/* Manage style */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -517,7 +502,7 @@ h2 { font-size: 2.5rem; }
     border: 1px solid #F98B88;
     padding: 12px;
     text-align: left;
-    color: #333; /* Pastikan teks terbaca */
+    color: #333; 
 }
 
 .admin-table th {
