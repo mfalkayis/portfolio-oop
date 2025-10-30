@@ -147,6 +147,14 @@ $num_skills = $result_skills->rowCount();
                     <a href="skill/manage_skills.php" class="btn-manage" title="Kelola Skills">Kelola</a>
                 </div>
             </div>
+
+            <div class="admin-card">
+                <h3>Pendidikan</h3>
+                <div class="card-buttons">
+                    <a href="education/edu_create_form.php" class="btn-plus" title="Tambah Pendidikan Baru">+</a>
+                    <a href="education/manage_education.php" class="btn-manage" title="Kelola Pendidikan">Kelola</a>
+                </div>
+            </div>
         </div>
     </section>
 
