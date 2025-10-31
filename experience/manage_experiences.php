@@ -29,17 +29,19 @@ $num_experiences = $result_experiences->rowCount();
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            alig
         }
         .manage-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
+            text-align: center;
         }
         .btn-back {
             display: inline-block;
             padding: 10px 15px;
-            background-color: #F98B88;
+            background-color: #F7a399;
             color: #333;
             text-decoration: none;
             border-radius: 25px;
@@ -48,6 +50,12 @@ $num_experiences = $result_experiences->rowCount();
         }
         .btn-back:hover {
             transform: scale(1.05);
+        }
+        .admin-table th{
+            text-align: center;
+            background-color: #f7a399;
+            color: #333;
+            padding: 12px;
         }
     </style>
 </head>
@@ -60,6 +68,7 @@ $num_experiences = $result_experiences->rowCount();
         </div>
 
         <table class="admin-table"> <thead>
+            <thead>
                 <tr>
                     <th>Gambar</th>
                     <th>Nama Kegiatan</th>
